@@ -73,7 +73,8 @@ public class CalculadoraTest {
         double result = instance.multiplicacion(a, b);
         assertEquals(expResult, result);
     }
-    // Caso de prueba: 10*0 ERROR
+    
+    // Caso de prueba: 10/0 ERROR ARREGLAR
     @Test
     public void testDivision() {
         System.out.println("division");
@@ -87,7 +88,7 @@ public class CalculadoraTest {
         });
     }
     
-    // Caso de prueba: 0,0 ERROR
+    // Caso de prueba: 0,0 ERROR ARREGLAR
     @Test
     public void testExponenciacion() {
         System.out.println("exponenciacion");
@@ -101,40 +102,40 @@ public class CalculadoraTest {
         });
     }
 
-    // Caso de prueba: 0*0 = 0
+    // Caso de prueba: raiz de (-4) = error  ARREGLAR
     @Test
     public void testRadicacion() {
         System.out.println("radicacion");
-        double numero = 0.0;
-        double indice = 0.0;
+        double numero = -4;
+        double indice = 2;
         Calculadora instance = new Calculadora();
-        double expResult = 0.0;
-        double result = instance.radicacion(numero, indice);
-        assertEquals(expResult, result, 0);
-        fail("The test case is a prototype.");
+        
+        assertThrows(IllegalArgumentException.class, () -> {
+        instance.radicacion(numero, indice);
+        });
     }
-    // Caso de prueba: 0*0 = 0
+    
+    // Caso de prueba: 220 y 284  TRUE
     @Test
     public void testSonAmigos() {
         System.out.println("sonAmigos");
-        int a = 0;
-        int b = 0;
+        int a = 220;
+        int b = 284;
         Calculadora instance = new Calculadora();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.sonAmigos(a, b);
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
-    // Caso de prueba: 0*0 = 0
+    
+    // Caso de prueba: 220 = 284
     @Test
     public void testSumaDivisores() {
         System.out.println("sumaDivisores");
-        int x = 0;
+        int x = 220;
         Calculadora instance = new Calculadora();
-        int expResult = 0;
+        int expResult = 284;
         int result = instance.sumaDivisores(x);
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
     
 }

@@ -10,6 +10,7 @@ package ec.edu.espol.mavenproject1;
  */
 
 public class Calculadora {
+    
     public double suma(double a, double b) {
         return a + b;
     }
@@ -59,6 +60,6 @@ public class Calculadora {
                     sum += x / i;
             }
         }
-        return sum;
+        return sum; 
     }
 }
