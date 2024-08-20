@@ -35,8 +35,11 @@ public class Calculadora {
     }
 
     public double radicacion(double numero, double indice) {
-        if (numero < 0) {
-            return 0.0;
+        if (numero < 0 && indice%2!=0) {
+            return -Math.pow(-numero, 1.0/indice);
+        }
+        else if (numero < 0 && indice%2==0){
+            return Double.NaN;
         }
         return Math.pow(numero, 1.0 / indice);
     }
