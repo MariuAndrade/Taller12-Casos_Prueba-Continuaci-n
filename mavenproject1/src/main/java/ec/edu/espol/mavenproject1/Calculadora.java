@@ -40,9 +40,16 @@ public class Calculadora {
     public double radicacion(double numero, double indice) {
     if (numero < 0 && indice % 2 == 0) {
         throw new IllegalArgumentException("No se puede calcular la raíz par de un número negativo.");
+        }
+        if (numero < 0 && indice%2!=0) {
+            return -Math.pow(-numero, 1.0/indice);
+        }
+        else if (numero < 0 && indice%2==0){
+            return Double.NaN;
+        }
+        return Math.pow(numero, 1.0 / indice);
     }
-    return Math.pow(numero, 1.0 / indice);
-}
+
     public boolean sonAmigos(int a, int b)
     {
         return (sumaDivisores(a) == b &&
